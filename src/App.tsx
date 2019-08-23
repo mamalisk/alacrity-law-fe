@@ -1,24 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import BooksContainer from './components/books';
+import { Route, RouteComponentProps } from 'react-router';
+import EditContainer from './components/edit';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route exact path="/" component={(props: RouteComponentProps) => <BooksContainer />}/>
+      <Route exact path="/edit" component={(props: RouteComponentProps) => <EditContainer />}/>
+      <Route exact path="/create" component={(props: RouteComponentProps) => <div>create</div>}/>
     </div>
   );
 }
