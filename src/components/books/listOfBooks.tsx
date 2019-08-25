@@ -287,7 +287,6 @@ export default function EnhancedTable(props: BooksProps) {
                     <TableCell align="center">
                         <EditIcon onClick={() => {
                             client.writeData({ data: { bookToEdit: row } });
-                            localStorage.setItem('bookToEdit', JSON.stringify(row))
                             props.history.push('/edit');
                         }
                     }/>
