@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button';
 interface EditBookFormProps {
     book: Book;
     history: any;
-    onSubmit: () => void;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -44,11 +43,23 @@ const EditBookForm: React.FunctionComponent<EditBookFormProps> = (props) => {
  const [editBook] = useMutation(EDIT_BOOK, {
     variables: { bookId: props.book.bookId, title, author, price },
   });
+
+  const isEmptyString = (s? : string) => {
+      return !s || s === '';
+  }
+  
   const onClick = (e: any) => {
       e.preventDefault();
-      editBook().then(_ => {
-        window.location.replace('/');
-      });
+      const emptyStrings = [title, author].map(_ => isEmptyString(_)).reduce((a,b) => a || b, false);
+      const isZeroOrNegativePrice = price === 0 || price < 0;
+      if(emptyStrings || isZeroOrNegativePrice) {
+          alert('Values were not valid!');
+      } else {
+        editBook().then(_ => {
+            window.location.replace('/');
+          });
+      }
+      
   };
 
   const cancel = (e: any) => {
@@ -61,7 +72,7 @@ const EditBookForm: React.FunctionComponent<EditBookFormProps> = (props) => {
         <TextField
             required
             id="title"
-            label="Required"
+            label="Title"
             defaultValue={props.book.title}
             className={classes.textField}
             onChange={(e)=> setTitle(e.currentTarget.value)}
@@ -70,7 +81,7 @@ const EditBookForm: React.FunctionComponent<EditBookFormProps> = (props) => {
         <TextField
             required
             id="author"
-            label="Required"
+            label="Author"
             defaultValue={props.book.author}
             className={classes.textField}
             onChange={(e)=> setAuthor(e.currentTarget.value)}
@@ -79,7 +90,7 @@ const EditBookForm: React.FunctionComponent<EditBookFormProps> = (props) => {
         <TextField
             required
             id="price"
-            label="Required"
+            label="Price"
             defaultValue={props.book.price + ''}
             type="number"
             className={classes.textField}

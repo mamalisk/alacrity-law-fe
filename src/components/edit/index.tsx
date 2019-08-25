@@ -21,8 +21,7 @@ const EditContainer = (props: { history: any; }) => {
   if(!data || !data.bookToEdit) return <div>an error occured...</div>;
   
   const book = data.bookToEdit;
-  const editBook = () => {};
-  return <EditBookForm book={book} onSubmit={() => {editBook()}} history={props.history}/>;
+  return <EditBookForm book={book} history={props.history}/>;
 };
 
 export default withRouter(EditContainer);
