@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const CreateBookForm = (props: { history: any }) => {
+export const CreateBookForm = (props: { history: any }) => {
   const classes = useStyles();
   const [title, setTitle] = React.useState<string>();
   const [author, setAuthor] = React.useState<string>();

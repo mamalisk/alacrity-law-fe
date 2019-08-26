@@ -4,7 +4,7 @@ import EditBookForm from './edit-book';
 import { useQuery } from '@apollo/react-hooks';
 import { withRouter } from 'react-router-dom';
 
-const GET_BOOK_TO_EDIT = gql`
+export const GET_BOOK_TO_EDIT = gql`
   {
     bookToEdit @client {
       bookId

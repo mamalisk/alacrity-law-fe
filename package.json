@@ -27,6 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:nowatch": "CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "codegen": "graphql-codegen --config codegen.yml"
   },
@@ -46,9 +47,14 @@
     ]
   },
   "devDependencies": {
+    "@apollo/react-testing": "3.0.0",
     "@graphql-codegen/cli": "^1.5.0",
     "@graphql-codegen/typescript": "1.5.0",
     "@graphql-codegen/typescript-operations": "1.5.0",
-    "@graphql-codegen/typescript-react-apollo": "1.5.0"
+    "@graphql-codegen/typescript-react-apollo": "1.5.0",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0"
   }
 }

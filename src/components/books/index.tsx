@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 
-const BooksContainer = (props: { history: any; }) => {
+export const BooksContainer = (props: { history: any; }) => {
     const {data, error ,loading } = useAllBooksQuery();
 
     if(loading) {
@@ -14,7 +14,6 @@ const BooksContainer = (props: { history: any; }) => {
 
     if(error || !data) {
         console.error(error);
-        console.info('data', data);
         return <div className="error">Error occured.</div>
     }
 

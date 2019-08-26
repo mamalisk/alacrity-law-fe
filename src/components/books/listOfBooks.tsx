@@ -22,7 +22,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 
-interface BooksProps {
+export interface BooksProps {
   data: AllBooksQuery;
   history: any;
 }
