@@ -17,4 +17,4 @@ For testing
     yarn test
 ```
 
-Due to lack of time I haven't added all the necessary tests both enzyme and cypress. Also as a refactoring point I would extract the create and edit form and create a single `UpsertForm` which would take an object for the default values (or empty object for the create) and a `MutationFn` as a parameter as Edit and Create views as almost identical aside the 2 aforementioned attributes.
+Due to lack of time I haven't added all the necessary tests both enzyme and cypress. Also as a refactoring point I would extract the create and edit form and create a single `UpsertForm` which would take an object for the default values (or empty object for the create) and a `MutationFn` as a parameter, since Edit and Create views are almost identical, aside the 2 aforementioned attributes.
